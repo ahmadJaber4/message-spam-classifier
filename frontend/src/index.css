@@ -1,12 +1,92 @@
-body{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
   margin: 0;
   background-color: #07091b;
 }
 
-.header{
+.header {
   background-image: url('./assets/poster.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 450px;
+  height: 53vh;
 }
+
+.main-container {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+}
+
+.classifier-box {
+  /* border: 1px solid greenyellow; */
+  width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.classifier-box h1 {
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.classifier-box .input-area {
+  width: 400px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 5px 10px;
+  background-color: #282c4899;
+  color: white;
+  transition: 1.5s ease-in-out;
+}
+
+.classifier-box .input-area::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.classifier-box .input-area:focus{
+  outline: none;
+  border: 2px solid #6ba2ea;
+}
+
+.button-box {
+  display: flex;
+  gap: 50px;
+  margin-top: 20px;
+}
+
+.classify-btn {
+  padding: 5px 20px;
+  font-size: 1.2em;
+  background-color: #6ba2ea;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.classify-btn:hover{
+  background-color: #85baff;
+}
+
+.clear-btn:hover{
+  background-color: rgb(243, 243, 243);
+}
+
+.clear-btn {
+  padding: 5px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
