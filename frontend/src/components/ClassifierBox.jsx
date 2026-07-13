@@ -1,16 +1,16 @@
 
-export default function ClassifierBox({inputData, setInputData}) {
+export default function ClassifierBox({ inputData, setInputData, handleClassify, handleClear, result }) {
     // handle sender change function
-    function handleSenderChange(e){
-        setInputData(prev=>({
+    function handleSenderChange(e) {
+        setInputData(prev => ({
             ...prev,
             sender: e.target.value
         }))
     }
 
     // handle message change function 
-    function handleMessageChange(e){
-        setInputData(prev=>({
+    function handleMessageChange(e) {
+        setInputData(prev => ({
             ...prev,
             message: e.target.value
         }))
@@ -31,9 +31,23 @@ export default function ClassifierBox({inputData, setInputData}) {
             </div>
 
             <div className="button-box">
-                <button className="classify-btn">Classify</button>
-                <button className="clear-btn">Clear</button>
+                <button className="classify-btn" onClick={handleClassify}>Classify</button>
+                <button className="clear-btn" onClick={handleClear}>Clear</button>
             </div>
+
+            {
+                result ?
+                    <div className="result">
+                        This message is {
+                            result == 'Spam' ?
+                                <span style={{ color: 'red', fontWeight: 'bold' }}>Spam</span>
+                                :
+                                <span style={{ color: 'greenyellow', fontWeight: 'bold' }}>Ham</span>
+                        }
+                    </div>
+                    : 
+                    null
+            }
         </div>
 
     )
