@@ -1,17 +1,24 @@
 
-export default function ClassifierBox(){
+export default function ClassifierBox() {
     return (
         <div className="classifier-box">
-            <h1>Classify Message</h1>
+            <div className="input-box">
+                <span className="sender">Sender</span>
+                <textarea className="input-area sender-input">
+                </textarea>
+            </div>
 
-            <textarea className="input-area" placeholder="Enter message...">
-            </textarea>
+            <div className="input-box">
+                <span className="sender">Message</span>
+                <textarea className="input-area message-input">
+                </textarea>
+            </div>
 
             <div className="button-box">
                 <button className="classify-btn">Classify</button>
                 <button className="clear-btn">Clear</button>
             </div>
         </div>
-        
+
     )
 }
