@@ -1,5 +1,13 @@
 
-export default function ClassifierBox({ inputData, setInputData, handleClassify, handleClear, result }) {
+export default function ClassifierBox({
+    inputData,
+    setInputData,
+    handleClassify,
+    handleClear,
+    result,
+    loading,
+    error
+}) {
     // handle sender change function
     function handleSenderChange(e) {
         setInputData(prev => ({
@@ -31,22 +39,32 @@ export default function ClassifierBox({ inputData, setInputData, handleClassify,
             </div>
 
             <div className="button-box">
-                <button className="classify-btn" onClick={handleClassify}>Classify</button>
+                <button className="classify-btn" onClick={handleClassify}>
+                    {
+                        loading ? <i className="fa-solid fa-spinner fa-spin fa-lg" style={{ color: 'rgb(0, 0, 0)' }}></i>
+                            :
+                            'Classify'
+                    }
+                </button>
                 <button className="clear-btn" onClick={handleClear}>Clear</button>
             </div>
 
             {
-                result ?
-                    <div className="result">
-                        This message is {
-                            result == 'Spam' ?
-                                <span style={{ color: 'red', fontWeight: 'bold' }}>Spam</span>
-                                :
-                                <span style={{ color: 'greenyellow', fontWeight: 'bold' }}>Ham</span>
-                        }
-                    </div>
-                    : 
-                    null
+                result &&
+                <div className="result">
+                    This message is {
+                        result == 'Spam' ?
+                            <span style={{ color: 'red', fontWeight: 'bold' }}>Spam</span>
+                            :
+                            <span style={{ color: 'greenyellow', fontWeight: 'bold' }}>Ham</span>
+                    }
+                </div>
+            }
+            {
+                error &&
+                <div className="error-msg">
+                    *Error: {error}
+                </div>
             }
         </div>
 

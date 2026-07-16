@@ -143,3 +143,9 @@ body {
   font-size: 1.3em;
   margin-bottom: 10px;
 }
+
+.error-msg{
+  color: red;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
