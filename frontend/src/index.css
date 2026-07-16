@@ -88,10 +88,6 @@ body {
   background-color: #6ba2ea;
 }
 
-.clear-btn:hover{
-  background-color: rgb(220, 220, 220);
-}
-
 .clear-btn {
   padding: 5px 20px;
   font-size: 1.2em;
@@ -101,6 +97,14 @@ body {
   cursor: pointer;
   transition: 0.2s ease-in-out;
   font-family: 'Inter';
+}
+
+.clear-btn:hover{
+  background-color: rgb(220, 220, 220);
+}
+
+.classify-btn:active, .clear-btn:active{
+  transform: scale(0.9);
 }
 
 .messages-box{
