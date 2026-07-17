@@ -45,19 +45,19 @@ export default function MainContainer() {
             // add message to corresponding list (normal or spam)
             if (result.data.class == 'Ham') {
                 setHamMessages(prev => ([
-                    ...prev,
                     {
                         ...inputData,
                         class: result.data.class
-                    }
+                    },
+                    ...prev
                 ]))
             } else {
                 setSpamMessages(prev => ([
-                    ...prev,
                     {
                         ...inputData,
                         class: result.data.class
-                    }
+                    },
+                    ...prev
                 ]))
             }
         } catch (err) {
@@ -90,7 +90,11 @@ export default function MainContainer() {
                 result={result}
                 loading={loading}
                 error={error} />
-            <MessagesBox />
+            <MessagesBox 
+                hamMessages={hamMessages}
+                spamMessages={spamMessages}
+                setHamMessages={setHamMessages}
+                setSpamMessages={setSpamMessages}/>
         </div>
     )
 }
