@@ -12,7 +12,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import joblib
-from utils import preprocess
+from .utils import preprocess
 
 # define backend server
 app = FastAPI()
@@ -30,8 +30,8 @@ class MessageInput(BaseModel):
     message: str
 
 # load model and vectorizer
-model = joblib.load('model.pkl')
-vectorizer = joblib.load('vectorizer.pkl')
+model = joblib.load('data/model.pkl')
+vectorizer = joblib.load('data/vectorizer.pkl')
 
 # GET /
 @app.get('/')

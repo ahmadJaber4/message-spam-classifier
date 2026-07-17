@@ -34,4 +34,4 @@ def preprocess(message):
     message = [lemmatizer.lemmatize(word, get_wordnet_pos(tag)) for (word, tag) in nltk.pos_tag(message)] # lemmatization
     message = ' '.join(message)
 
-    return message 
+    return message
