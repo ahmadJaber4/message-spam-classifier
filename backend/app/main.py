@@ -20,7 +20,8 @@ app = FastAPI()
 # configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['http://localhost:5173'],
+    allow_origins=['http://localhost:5173',
+                   'https://message-spam-classifier-frontend.onrender.com'],
     allow_methods=['*'],
     allow_headers=['*'],
 )
