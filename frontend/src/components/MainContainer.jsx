@@ -58,7 +58,7 @@ export default function MainContainer() {
 
         try {
             // POST request to send data and receive class
-            const result = await axios.post('http://127.0.0.1:8000/predict', {
+            const result = await axios.post('https://message-spam-classifier-backend.onrender.com', {
                 message: inputData.message
             })
 
