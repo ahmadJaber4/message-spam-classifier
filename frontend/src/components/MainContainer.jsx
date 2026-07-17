@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ClassifierBox from "./ClassifierBox";
 import MessagesBox from "./MessagesBox";
 
@@ -13,9 +13,31 @@ export default function MainContainer() {
     // result state
     const [result, setResult] = useState()
 
-    // spam and ham messages states (lists)
-    const [spamMessages, setSpamMessages] = useState([])
-    const [hamMessages, setHamMessages] = useState([])
+    // spam and ham messages states (lists), initialized from localStorage
+    const [spamMessages, setSpamMessages] = useState(() => {
+        try { 
+            return JSON.parse(localStorage.getItem('spamMessages')) || [] 
+        } 
+        catch { 
+            return [] 
+        }
+    })
+    const [hamMessages, setHamMessages] = useState(() => {
+        try { 
+            return JSON.parse(localStorage.getItem('hamMessages')) || [] 
+        } catch { 
+            return [] 
+        }
+    })
+
+    // persist messages to localStorage on change
+    useEffect(() => { 
+        localStorage.setItem('spamMessages', JSON.stringify(spamMessages)) 
+    }, [spamMessages])
+
+    useEffect(() => { 
+        localStorage.setItem('hamMessages', JSON.stringify(hamMessages)) 
+    }, [hamMessages])
 
     // error and loading states
     const [loading, setLoading] = useState(false)
